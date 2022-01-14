@@ -12,9 +12,8 @@ class App extends Component {
         lon: 0,
         name: 'Bangalore',
         country: 'IN',
-        current: {},
-        daily: []
-
+        daily: [],
+        selectedCurrentIndex: 0
     }
 
 
@@ -27,7 +26,7 @@ class App extends Component {
         const res1 = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=hourly,minutely&units=metric&appid=${myApiKey} `)
         const result1 = await res1.json()
 
-        this.setState({ name, country: sys.country, lat: coord.lat, lon: coord.lon, current: result1.current, daily: result1.daily })
+        this.setState({ name, country: sys.country, lat: coord.lat, lon: coord.lon, daily: result1.daily })
     }
 
     componentDidMount() {
@@ -45,8 +44,16 @@ class App extends Component {
 
     }
 
+    setSelectedIndex = (index) => {
+        this.setState({
+            selectedCurrentIndex: index
+        })
+    }
+
 
     render() {
+
+        console.log(this.state.daily)
         return (
             <div className='app-container'>
                 <Weather
@@ -55,7 +62,9 @@ class App extends Component {
                     onChange={this.onChange}
                     name={this.state.name}
                     country={this.state.country}
-                    current={this.state.current}
+                    currentIndex={this.state.selectedCurrentIndex}
+                    daily={this.state.daily}
+                    setSelectedIndex={this.setSelectedIndex}
                 />
             </div>
 

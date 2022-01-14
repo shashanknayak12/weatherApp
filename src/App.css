@@ -1,20 +1,83 @@
 .app-container {
-	background-color: #070a0d;
+	background: linear-gradient(to right, #3f3d48, #4b5286);
 
 	height: 100vh;
 }
 
-h1 {
-	color: #bf2441;
+/* h1 {
+	color: #1a1954;
+}
+h3 {
+	color: #1a1954;
+}
+h5 {
+	color: #1a1954;
+} */
+
+.search-sec {
+	right: 40px;
+	width: 39rem;
+}
+.search-sec button {
+	position: absolute;
+	left: 40.5rem;
+	bottom: 26.4rem;
+}
+.card {
+	width: 53%;
+	position: relative;
+	left: 22%;
+	top: 20%;
+	padding: 1rem;
+	box-shadow: 1px 2px 5px 1px #000;
+	background-color: #65bfe000;
+	height: fit-content;
 }
 
-.card {
-	width: 50%;
-	position: relative;
-	left: 25%;
-	top: 25%;
+.weekWeatherCard {
+	width: 14%;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0.5rem;
+	/* box-shadow: 1px 2px 5px 1px #ddd; */
+	background-color: #dedee1;
+	height: fit-content;
+	cursor: pointer;
+	margin-left: 5px;
+	text-align: center;
+	margin-top: 2rem;
+	border-radius: 8px;
+}
+
+.weatherImg {
+	width: 3rem;
+	display: block;
+}
+
+.weatherCurrentImg {
+	width: 7rem;
+	display: block;
+}
+
+.current-weather-card {
+	width: 100%;
+	font-size: 12px;
+	font-weight: bold;
 	padding: 1rem;
-	box-shadow: 1px 2px 5px 1px #ddd;
-	background-color: #000;
-	height: 50%;
+
+	background-color: #dedee1;
+	height: 13rem;
+	cursor: pointer;
+	border-radius: 8px;
+	margin-top: 2rem;
+}
+
+.dbg {
+	background-color: #dedee100;
+	color: white;
+}
+
+.nbg {
+	color: #1a1954;
+	background-color: white;
 }
