@@ -75,6 +75,7 @@ function Weather({ searchText, onClick, onChange, name, country, currentIndex, d
                                 </div>
                             )
                         })}
+
                     </div>
                 </>
             }
