@@ -18,7 +18,7 @@ class App extends Component {
 
 
     myData = async () => {
-        const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.searchText}&units=metric&appid=${myApiKey} `)
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.searchText}&units=metric&appid=${myApiKey} `)
         const result = await res.json()
 
         const { name, sys, coord } = result
@@ -55,7 +55,7 @@ class App extends Component {
 
         console.log(this.state.daily)
         return (
-            <div className='app-container'>
+            <div>
                 <Weather
                     searchText={this.state.searchText}
                     onClick={this.onClick}

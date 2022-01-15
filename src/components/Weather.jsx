@@ -7,16 +7,16 @@ function Weather({ searchText, onClick, onChange, name, country, currentIndex, d
 
 
     return (
-        <div className='card-wrapper '>
+        <div className='card-wrapper'>
             <div className='search-sec'>
                 <input
-                    className='input-sec'
+                    className='input-sec flex-3'
                     value={searchText}
                     onChange={onChange}>
 
                 </input>
                 <button
-                    className='btn btn-primary mt-2 mb-4 ps-5 pe-5'
+                    className='btn btn-primary flex-1'
                     onClick={onClick}>
                     search
                 </button>
@@ -24,26 +24,24 @@ function Weather({ searchText, onClick, onChange, name, country, currentIndex, d
 
 
             <div className={`current-weather-card  ${daily && daily.length > 0 && daily[currentIndex].weather[0].icon.endsWith('d') ? 'dbg' : 'nbg'}`} >
-                <div className='flex-grow-1 weather-report'>
+                <div className='flex-1'>
 
-                    <h1>{name},{country}</h1>
+                    <h1>{name}, {country}</h1>
                     <h5>Humidity:{daily && daily.length > 0 && daily[currentIndex].humidity}</h5>
                     <h5>Pressure:{daily && daily.length > 0 && daily[currentIndex].pressure}</h5>
-                    <h5>Temparature:{daily && daily.length > 0 && daily[currentIndex].temp.day}</h5>
+                    <h5>Temparature:{daily && daily.length > 0 && daily[currentIndex].temp.day}<span>&#8451;</span></h5>
                 </div>
 
-                <div className='img-desc-responsive'>
-                    <h3>
-                        {daily && daily.length > 0 &&
+                <div className='flex-1 weatherImgWrapper'>
+                    {daily && daily.length > 0 &&
 
 
-                            <img className='weatherCurrentImg'
-                                alt={daily[currentIndex].weather[0].description}
-                                src={`http://openweathermap.org/img/wn/${daily[currentIndex].weather[0].icon}@2x.png`}>
+                        <img className='weatherCurrentImg'
+                            alt={daily[currentIndex].weather[0].description}
+                            src={`http://openweathermap.org/img/wn/${daily[currentIndex].weather[0].icon}@2x.png`}>
 
-                            </img>
-                        }
-                    </h3>
+                        </img>
+                    }
                     <h3>{daily && daily.length > 0 && daily[currentIndex].weather[0].description}</h3>
 
 
@@ -65,8 +63,11 @@ function Weather({ searchText, onClick, onChange, name, country, currentIndex, d
                             {day}
                             <img className='weatherImg' alt={each.description} src={`http://openweathermap.org/img/wn/${each.weather[0].icon}@2x.png`}></img>
                             {date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()}
+                            <br></br>
+                            <br></br>
                             <p>
-                                {each.weather[0].main}
+                                Min:{daily && daily.length > 0 && daily[currentIndex].temp.min}<span>&#8451;</span><br></br>
+                                Max:{daily && daily.length > 0 && daily[currentIndex].temp.max}<span>&#8451;</span>
                             </p>
 
                         </div>
